@@ -7,8 +7,8 @@ consumer_key_secret = "LBQYJj8ajSz0HT5V4TDhAkWKtGae8NdO1tzEEYTCQ8rQEtRFI5"
 access_token = "1595392163978018816-CShMuu3gTPomol50x6lYpuVwIdxCwZ"
 access_token_secret = "ImTDOuJzmicnbD57cx9TbWymu7XIW44T1AekSRiMKA1Kw"
 
-#connect to x api
-client = tweepy.client(
+#connect to X api
+client = tweepy.Client(
     bearer_token=bearer_token,
     consumer_key=consumer_key,
     consumer_secret=consumer_key_secret,
