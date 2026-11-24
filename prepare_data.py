@@ -3,6 +3,10 @@ import pandas as pd
 df = pd.read_csv('Covid-19 Twitter Dataset.csv')
 print("Columns in dataset:", df.columns.tolist())
 
+for index,row in df.iterrows():
+    tweet_text=str(row['text'])
+    user_location=str(row['user_location'])
+
 rename_map = {}
 if 'original_text' in df.columns:
     rename_map['original_text'] = 'text'

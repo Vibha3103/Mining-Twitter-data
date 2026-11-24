@@ -1,0 +1,383 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    36.8288509,
+                    -1.302398
+                ]
+            },
+            "properties": {
+                "text": "[Nairobi, Kenya] RT @RobertAlai: 91-year-old Ex-Vice President Moody Awori Lands Inter County Covid-19 Committee Role https://t.co/bslXxeMpGD",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    78.6677428,
+                    22.3511148
+                ]
+            },
+            "properties": {
+                "text": "[India] RT @OpIndia_com: Curious case of \u2018United Nations\u2019 NGO appreciating \u2018Kingdom of Mamata Banerjee\u2019 for their Covid-19 work. @LekhakAnurag and\u2026",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -4.2501687,
+                    55.861155
+                ]
+            },
+            "properties": {
+                "text": "[Glasgow] RT @EdinburghTrams: Did you know you can buy your tram tickets in advance at https://t.co/G9RuVVM5Lw ? \ud83d\udcbb\n \nYou can also download your ticke\u2026",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -2.2324547,
+                    53.4424618
+                ]
+            },
+            "properties": {
+                "text": "[Manchester United Kingdom] RT @SynergyMobile: England\u2019s revamped contact-tracing app enters public trials - \nEngland\u2019s contact-tracing app for increasing people\u2019s saf\u2026",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.1947866,
+                    25.7830338
+                ]
+            },
+            "properties": {
+                "text": "[United States for now] RT @larryelder: DAY 3\n\n1)Trump is a racist.\n\n2)Trump is personally responsible for 170,000 American COVID-19 deaths.\n\n3)Trump executed Geor\u2026",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.2605593,
+                    53.3493795
+                ]
+            },
+            "properties": {
+                "text": "[Dublin City, Ireland] RT @Womens_Aid: Today we launch the Women's Aid Annual Impact Report for 2019 and special Covid-19 Report. \n\nThe reports provide insight in\u2026",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    4.6816277,
+                    10.6123221
+                ]
+            },
+            "properties": {
+                "text": "[Niger/Kebbi Nigeria] RT @KebbiTweets: KEBBI CSO/CBO RISK COMMUNICATION AND COMMUNITY ENGAGEMENT ON COVID19 AND PRIMARY HEALTH CARE\n\nArgungu Emirate Social Media\u2026",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.1446041,
+                    -14.6909792
+                ]
+            },
+            "properties": {
+                "text": "[\u00e8toile] RT @theseoulstory: JTBC drama 'Private Lives' starring Seohyun and Go Kyung Pyo halts filming\n\nOne staff reportedly went to the filming sit\u2026",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.5510721,
+                    46.971699
+                ]
+            },
+            "properties": {
+                "text": "[TARDIS] RT @DWUhlfelderLaw: BREAKING:  42 Florida State students have tested positive for COVID-19.  Florida State is located in Tallahassee, Flori\u2026",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.1277653,
+                    51.5074456
+                ]
+            },
+            "properties": {
+                "text": "[London] RT @BylineTimes: Beyond Exceptional: The Etonian English Imperialism at the Heart of a Deadly COVID-19 Crisis \u2013 Byline Times https://t.co/t\u2026",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    3.3814309,
+                    50.6203946
+                ]
+            },
+            "properties": {
+                "text": "[Jungle City] RT @kuyaaisko: PH COVID-19 Response in 4 Words: https://t.co/zD0hEIVEnp",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    138.6837193,
+                    -34.762779
+                ]
+            },
+            "properties": {
+                "text": "[Salisbury Heights, Adelaide] RT @crikey_news: UNLOCKED READ: Scott Morrison's team is masterful at spin and marketing but won't even accept responsibility for the aged\u2026",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2.8647185,
+                    51.0333408
+                ]
+            },
+            "properties": {
+                "text": "[Diksmuide, Belgi\u00eb] 'Silent spreaders' of COVID-19: Kids who seem healthy may be more contagious than sick adults, study says - USA TOD\u2026 https://t.co/ZGXJ3JXtaV",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -116.3540138,
+                    43.6954424
+                ]
+            },
+            "properties": {
+                "text": "[Eagle, ID] \ud83e\udd16\n/u/mattok123 posted:\nProtestant churches under siege in new COVID-19 storm [in South Korea]. Unique church cultur\u2026 https://t.co/rGytbYrpAC",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.2319736,
+                    46.7985624
+                ]
+            },
+            "properties": {
+                "text": "[Switzerland] RT @TAInitiative: We need to find ways for people to tell their own stories on their own terms.\nHow will that look like in the digital age?\u2026",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    77.2090057,
+                    28.6138954
+                ]
+            },
+            "properties": {
+                "text": "[New Delhi, India] RT @AsYouNotWish: I hope, the BMC will also follow the COVID-19 protocols when Aamir Khan returns to India from Turkey.\n\nMumbai Police just\u2026",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    72.8692035,
+                    19.054999
+                ]
+            },
+            "properties": {
+                "text": "[Mumbai, India] RT @sonaliranade: \u201c\u2026 you realise India is doing very poorly. In China, Covid-19 deaths per million population is 3. In India it is 34. With\u2026",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -102.0077097,
+                    23.6585116
+                ]
+            },
+            "properties": {
+                "text": "[mx] RT @kdramafairy: upcoming drama #PrivateLives has also suspended filming as one of their staff has been in a location where there was a con\u2026",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    18.4172197,
+                    -33.9288301
+                ]
+            },
+            "properties": {
+                "text": "[Cape Town, South Africa] RT @kleine_zalze: While the temperature is mild and the evenings crisp, enjoy a glass of red at home with a serving of sizzling steak or ev\u2026",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -3.0241531,
+                    51.6416586
+                ]
+            },
+            "properties": {
+                "text": "[Cwmbran South Wales] RT @TonyGreyMan: @Tony__Heller Leader of Manchester City Council warns: \"some of the government's measures imposed are now almost certainly\u2026",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    78.6677428,
+                    22.3511148
+                ]
+            },
+            "properties": {
+                "text": "[India] RT @ReviewReligions: \"The recent COVID-19 pandemic has exposed an underbelly of poverty much closer than we had realized. It has been shock\u2026",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -1.2649062,
+                    52.5310214
+                ]
+            },
+            "properties": {
+                "text": "[England] RT @itvnews: Children may carry more Covid-19 in their systems than previously thought, study reveals\nhttps://t.co/lIEQPgi0Ve",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    78.6677428,
+                    22.3511148
+                ]
+            },
+            "properties": {
+                "text": "[India] RT @Showsha_in: #ProudOfYouSidharth trended on social media after #BiggBoss13 winner #SidharthShukla reached out to help a fan's Covid_19 p\u2026",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -3.73893,
+                    52.2928116
+                ]
+            },
+            "properties": {
+                "text": "[Wales, GB] RT @GeneroGroup: If you're an event professional feeling a little lost on how to implement your next event, have a read of our latest blog!\u2026",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -4.0685073,
+                    52.4144637
+                ]
+            },
+            "properties": {
+                "text": "[Cymru / Wales] RT @HywelDdaHB: We know it's been tough not seeing friends and being stuck at home for months. We want you to enjoy yourself as much as pos\u2026",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.1277653,
+                    51.5074456
+                ]
+            },
+            "properties": {
+                "text": "[London, United Kingdom] #Coronavirus market impact - #house moves down by a third https://t.co/a8nwCpPmAt",
+                "created_at": "2020-08-20"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -87.6244212,
+                    41.8755616
+                ]
+            },
+            "properties": {
+                "text": "[Chicago, IL] RT @AnheuserBusch: From redirecting our sports investments to open blood drive centers to hosting live-streamed workouts and cooking lesson\u2026",
+                "created_at": "2020-08-20"
+            }
+        }
+    ]
+}

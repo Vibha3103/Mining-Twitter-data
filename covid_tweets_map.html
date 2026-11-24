@@ -1,0 +1,1655 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_96be507242fb906f11b09471b92fdc0f {
+                    position: relative;
+                    width: 100.0vw;
+                    height: 100.0vh;
+
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>/*
+ * Glyphicons Halflings -- the icon font used by folium's default Awesome Markers
+ * (Icon(prefix="glyphicon")). Extracted from Bootstrap 3's glyphicon rules only.
+ *
+ * folium previously loaded netdna's bootstrap-glyphicons.css, which despite its
+ * name ships a full Bootstrap-3 base stylesheet (normalize reset + global `body`
+ * rules) that leaked onto the host page (GH-1820). This file provides just the
+ * @font-face and .glyphicon/.glyphicon-* rules needed for the markers, with no
+ * page-wide side effects. Font files are served from jsDelivr.
+ */
+@font-face{font-family:'Glyphicons Halflings';src:url('https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/fonts/glyphicons-halflings-regular.eot');src:url('https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),url('https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/fonts/glyphicons-halflings-regular.woff') format('woff'),url('https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/fonts/glyphicons-halflings-regular.ttf') format('truetype'),url('https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');}.glyphicon{position:relative;top:1px;display:inline-block;font-family:'Glyphicons Halflings';font-style:normal;font-weight:normal;line-height:1;-webkit-font-smoothing:antialiased;}
+.glyphicon-asterisk:before{content:"\2a";}
+.glyphicon-plus:before{content:"\2b";}
+.glyphicon-euro:before{content:"\20ac";}
+.glyphicon-minus:before{content:"\2212";}
+.glyphicon-cloud:before{content:"\2601";}
+.glyphicon-envelope:before{content:"\2709";}
+.glyphicon-pencil:before{content:"\270f";}
+.glyphicon-glass:before{content:"\e001";}
+.glyphicon-music:before{content:"\e002";}
+.glyphicon-search:before{content:"\e003";}
+.glyphicon-heart:before{content:"\e005";}
+.glyphicon-star:before{content:"\e006";}
+.glyphicon-star-empty:before{content:"\e007";}
+.glyphicon-user:before{content:"\e008";}
+.glyphicon-film:before{content:"\e009";}
+.glyphicon-th-large:before{content:"\e010";}
+.glyphicon-th:before{content:"\e011";}
+.glyphicon-th-list:before{content:"\e012";}
+.glyphicon-ok:before{content:"\e013";}
+.glyphicon-remove:before{content:"\e014";}
+.glyphicon-zoom-in:before{content:"\e015";}
+.glyphicon-zoom-out:before{content:"\e016";}
+.glyphicon-off:before{content:"\e017";}
+.glyphicon-signal:before{content:"\e018";}
+.glyphicon-cog:before{content:"\e019";}
+.glyphicon-trash:before{content:"\e020";}
+.glyphicon-home:before{content:"\e021";}
+.glyphicon-file:before{content:"\e022";}
+.glyphicon-time:before{content:"\e023";}
+.glyphicon-road:before{content:"\e024";}
+.glyphicon-download-alt:before{content:"\e025";}
+.glyphicon-download:before{content:"\e026";}
+.glyphicon-upload:before{content:"\e027";}
+.glyphicon-inbox:before{content:"\e028";}
+.glyphicon-play-circle:before{content:"\e029";}
+.glyphicon-repeat:before{content:"\e030";}
+.glyphicon-refresh:before{content:"\e031";}
+.glyphicon-list-alt:before{content:"\e032";}
+.glyphicon-flag:before{content:"\e034";}
+.glyphicon-headphones:before{content:"\e035";}
+.glyphicon-volume-off:before{content:"\e036";}
+.glyphicon-volume-down:before{content:"\e037";}
+.glyphicon-volume-up:before{content:"\e038";}
+.glyphicon-qrcode:before{content:"\e039";}
+.glyphicon-barcode:before{content:"\e040";}
+.glyphicon-tag:before{content:"\e041";}
+.glyphicon-tags:before{content:"\e042";}
+.glyphicon-book:before{content:"\e043";}
+.glyphicon-print:before{content:"\e045";}
+.glyphicon-font:before{content:"\e047";}
+.glyphicon-bold:before{content:"\e048";}
+.glyphicon-italic:before{content:"\e049";}
+.glyphicon-text-height:before{content:"\e050";}
+.glyphicon-text-width:before{content:"\e051";}
+.glyphicon-align-left:before{content:"\e052";}
+.glyphicon-align-center:before{content:"\e053";}
+.glyphicon-align-right:before{content:"\e054";}
+.glyphicon-align-justify:before{content:"\e055";}
+.glyphicon-list:before{content:"\e056";}
+.glyphicon-indent-left:before{content:"\e057";}
+.glyphicon-indent-right:before{content:"\e058";}
+.glyphicon-facetime-video:before{content:"\e059";}
+.glyphicon-picture:before{content:"\e060";}
+.glyphicon-map-marker:before{content:"\e062";}
+.glyphicon-adjust:before{content:"\e063";}
+.glyphicon-tint:before{content:"\e064";}
+.glyphicon-edit:before{content:"\e065";}
+.glyphicon-share:before{content:"\e066";}
+.glyphicon-check:before{content:"\e067";}
+.glyphicon-move:before{content:"\e068";}
+.glyphicon-step-backward:before{content:"\e069";}
+.glyphicon-fast-backward:before{content:"\e070";}
+.glyphicon-backward:before{content:"\e071";}
+.glyphicon-play:before{content:"\e072";}
+.glyphicon-pause:before{content:"\e073";}
+.glyphicon-stop:before{content:"\e074";}
+.glyphicon-forward:before{content:"\e075";}
+.glyphicon-fast-forward:before{content:"\e076";}
+.glyphicon-step-forward:before{content:"\e077";}
+.glyphicon-eject:before{content:"\e078";}
+.glyphicon-chevron-left:before{content:"\e079";}
+.glyphicon-chevron-right:before{content:"\e080";}
+.glyphicon-plus-sign:before{content:"\e081";}
+.glyphicon-minus-sign:before{content:"\e082";}
+.glyphicon-remove-sign:before{content:"\e083";}
+.glyphicon-ok-sign:before{content:"\e084";}
+.glyphicon-question-sign:before{content:"\e085";}
+.glyphicon-info-sign:before{content:"\e086";}
+.glyphicon-screenshot:before{content:"\e087";}
+.glyphicon-remove-circle:before{content:"\e088";}
+.glyphicon-ok-circle:before{content:"\e089";}
+.glyphicon-ban-circle:before{content:"\e090";}
+.glyphicon-arrow-left:before{content:"\e091";}
+.glyphicon-arrow-right:before{content:"\e092";}
+.glyphicon-arrow-up:before{content:"\e093";}
+.glyphicon-arrow-down:before{content:"\e094";}
+.glyphicon-share-alt:before{content:"\e095";}
+.glyphicon-resize-full:before{content:"\e096";}
+.glyphicon-resize-small:before{content:"\e097";}
+.glyphicon-exclamation-sign:before{content:"\e101";}
+.glyphicon-gift:before{content:"\e102";}
+.glyphicon-leaf:before{content:"\e103";}
+.glyphicon-eye-open:before{content:"\e105";}
+.glyphicon-eye-close:before{content:"\e106";}
+.glyphicon-warning-sign:before{content:"\e107";}
+.glyphicon-plane:before{content:"\e108";}
+.glyphicon-random:before{content:"\e110";}
+.glyphicon-comment:before{content:"\e111";}
+.glyphicon-magnet:before{content:"\e112";}
+.glyphicon-chevron-up:before{content:"\e113";}
+.glyphicon-chevron-down:before{content:"\e114";}
+.glyphicon-retweet:before{content:"\e115";}
+.glyphicon-shopping-cart:before{content:"\e116";}
+.glyphicon-folder-close:before{content:"\e117";}
+.glyphicon-folder-open:before{content:"\e118";}
+.glyphicon-resize-vertical:before{content:"\e119";}
+.glyphicon-resize-horizontal:before{content:"\e120";}
+.glyphicon-hdd:before{content:"\e121";}
+.glyphicon-bullhorn:before{content:"\e122";}
+.glyphicon-certificate:before{content:"\e124";}
+.glyphicon-thumbs-up:before{content:"\e125";}
+.glyphicon-thumbs-down:before{content:"\e126";}
+.glyphicon-hand-right:before{content:"\e127";}
+.glyphicon-hand-left:before{content:"\e128";}
+.glyphicon-hand-up:before{content:"\e129";}
+.glyphicon-hand-down:before{content:"\e130";}
+.glyphicon-circle-arrow-right:before{content:"\e131";}
+.glyphicon-circle-arrow-left:before{content:"\e132";}
+.glyphicon-circle-arrow-up:before{content:"\e133";}
+.glyphicon-circle-arrow-down:before{content:"\e134";}
+.glyphicon-globe:before{content:"\e135";}
+.glyphicon-tasks:before{content:"\e137";}
+.glyphicon-filter:before{content:"\e138";}
+.glyphicon-fullscreen:before{content:"\e140";}
+.glyphicon-dashboard:before{content:"\e141";}
+.glyphicon-heart-empty:before{content:"\e143";}
+.glyphicon-link:before{content:"\e144";}
+.glyphicon-phone:before{content:"\e145";}
+.glyphicon-usd:before{content:"\e148";}
+.glyphicon-gbp:before{content:"\e149";}
+.glyphicon-sort:before{content:"\e150";}
+.glyphicon-sort-by-alphabet:before{content:"\e151";}
+.glyphicon-sort-by-alphabet-alt:before{content:"\e152";}
+.glyphicon-sort-by-order:before{content:"\e153";}
+.glyphicon-sort-by-order-alt:before{content:"\e154";}
+.glyphicon-sort-by-attributes:before{content:"\e155";}
+.glyphicon-sort-by-attributes-alt:before{content:"\e156";}
+.glyphicon-unchecked:before{content:"\e157";}
+.glyphicon-expand:before{content:"\e158";}
+.glyphicon-collapse-down:before{content:"\e159";}
+.glyphicon-collapse-up:before{content:"\e160";}
+.glyphicon-log-in:before{content:"\e161";}
+.glyphicon-flash:before{content:"\e162";}
+.glyphicon-log-out:before{content:"\e163";}
+.glyphicon-new-window:before{content:"\e164";}
+.glyphicon-record:before{content:"\e165";}
+.glyphicon-save:before{content:"\e166";}
+.glyphicon-open:before{content:"\e167";}
+.glyphicon-saved:before{content:"\e168";}
+.glyphicon-import:before{content:"\e169";}
+.glyphicon-export:before{content:"\e170";}
+.glyphicon-send:before{content:"\e171";}
+.glyphicon-floppy-disk:before{content:"\e172";}
+.glyphicon-floppy-saved:before{content:"\e173";}
+.glyphicon-floppy-remove:before{content:"\e174";}
+.glyphicon-floppy-save:before{content:"\e175";}
+.glyphicon-floppy-open:before{content:"\e176";}
+.glyphicon-credit-card:before{content:"\e177";}
+.glyphicon-transfer:before{content:"\e178";}
+.glyphicon-cutlery:before{content:"\e179";}
+.glyphicon-header:before{content:"\e180";}
+.glyphicon-compressed:before{content:"\e181";}
+.glyphicon-earphone:before{content:"\e182";}
+.glyphicon-phone-alt:before{content:"\e183";}
+.glyphicon-tower:before{content:"\e184";}
+.glyphicon-stats:before{content:"\e185";}
+.glyphicon-sd-video:before{content:"\e186";}
+.glyphicon-hd-video:before{content:"\e187";}
+.glyphicon-subtitles:before{content:"\e188";}
+.glyphicon-sound-stereo:before{content:"\e189";}
+.glyphicon-sound-dolby:before{content:"\e190";}
+.glyphicon-sound-5-1:before{content:"\e191";}
+.glyphicon-sound-6-1:before{content:"\e192";}
+.glyphicon-sound-7-1:before{content:"\e193";}
+.glyphicon-copyright-mark:before{content:"\e194";}
+.glyphicon-registration-mark:before{content:"\e195";}
+.glyphicon-cloud-download:before{content:"\e197";}
+.glyphicon-cloud-upload:before{content:"\e198";}
+.glyphicon-tree-conifer:before{content:"\e199";}
+.glyphicon-tree-deciduous:before{content:"\e200";}
+.glyphicon-briefcase:before{content:"\1f4bc";}
+.glyphicon-calendar:before{content:"\1f4c5";}
+.glyphicon-pushpin:before{content:"\1f4cc";}
+.glyphicon-paperclip:before{content:"\1f4ce";}
+.glyphicon-camera:before{content:"\1f4f7";}
+.glyphicon-lock:before{content:"\1f512";}
+.glyphicon-bell:before{content:"\1f514";}
+.glyphicon-bookmark:before{content:"\1f516";}
+.glyphicon-fire:before{content:"\1f525";}
+.glyphicon-wrench:before{content:"\1f527";}
+</style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+    
+            
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_96be507242fb906f11b09471b92fdc0f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_96be507242fb906f11b09471b92fdc0f = L.map(
+                "map_96be507242fb906f11b09471b92fdc0f",
+                {
+                    center: [20.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 2,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_8224f5817674c2d8b392aaf5573b02e0 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_8224f5817674c2d8b392aaf5573b02e0.addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var marker_2086eca5e5c7d14b9dd447f368fe8750 = L.marker(
+                [-1.302398, 36.8288509],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_9a4817374695329e64e1d622a6b3e2c6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c2eaef2475e8208ee82c7353cbb94552 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_864cb6758852e55a299bcf58a61e8133 = $(`<div id="html_864cb6758852e55a299bcf58a61e8133" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[Nairobi, Kenya] RT @RobertAlai: 91-year-old Ex-Vice President Moody Awori Lands Inter County Covid-19 Committee Role https://t.co/bslXxeMpGD</div>`)[0];
+                popup_c2eaef2475e8208ee82c7353cbb94552.setContent(html_864cb6758852e55a299bcf58a61e8133);
+            
+        
+
+        marker_2086eca5e5c7d14b9dd447f368fe8750.bindPopup(popup_c2eaef2475e8208ee82c7353cbb94552)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_2086eca5e5c7d14b9dd447f368fe8750.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_2086eca5e5c7d14b9dd447f368fe8750.setIcon(icon_9a4817374695329e64e1d622a6b3e2c6);
+            
+    
+            var marker_980ebd9803b6852525c9940b80036fb7 = L.marker(
+                [22.3511148, 78.6677428],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_0902bbbdf4c4073f8c8c34f32fca54d7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e93aecf85fb3e298abfb79cf511f02ce = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_29a70fab4a1595f206202396a3a30796 = $(`<div id="html_29a70fab4a1595f206202396a3a30796" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[India] RT @OpIndia_com: Curious case of ‘United Nations’ NGO appreciating ‘Kingdom of Mamata Banerjee’ for their Covid-19 work. @LekhakAnurag and…</div>`)[0];
+                popup_e93aecf85fb3e298abfb79cf511f02ce.setContent(html_29a70fab4a1595f206202396a3a30796);
+            
+        
+
+        marker_980ebd9803b6852525c9940b80036fb7.bindPopup(popup_e93aecf85fb3e298abfb79cf511f02ce)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_980ebd9803b6852525c9940b80036fb7.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_980ebd9803b6852525c9940b80036fb7.setIcon(icon_0902bbbdf4c4073f8c8c34f32fca54d7);
+            
+    
+            var marker_7e1f285e8c9de5c41948980a9ef63cce = L.marker(
+                [55.861155, -4.2501687],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_40ee65014bfc06e6104398299055620e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9da09ab58b632e43f2fe99cae36ad7cd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_93fbf72e932f3ac83ff82fadc4fc4842 = $(`<div id="html_93fbf72e932f3ac83ff82fadc4fc4842" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[Glasgow] RT @EdinburghTrams: Did you know you can buy your tram tickets in advance at https://t.co/G9RuVVM5Lw ? 💻   You can also download your ticke…</div>`)[0];
+                popup_9da09ab58b632e43f2fe99cae36ad7cd.setContent(html_93fbf72e932f3ac83ff82fadc4fc4842);
+            
+        
+
+        marker_7e1f285e8c9de5c41948980a9ef63cce.bindPopup(popup_9da09ab58b632e43f2fe99cae36ad7cd)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_7e1f285e8c9de5c41948980a9ef63cce.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_7e1f285e8c9de5c41948980a9ef63cce.setIcon(icon_40ee65014bfc06e6104398299055620e);
+            
+    
+            var marker_91d3e50cc5a12cd89b26f7d8872f1bc4 = L.marker(
+                [53.4424618, -2.2324547],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_59c5889e0eb8becbedb7fb65e39ae33f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7666a56ca41a300777abe381766a896c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dba6fd205f377cce85ff17216819785c = $(`<div id="html_dba6fd205f377cce85ff17216819785c" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[Manchester United Kingdom] RT @SynergyMobile: England’s revamped contact-tracing app enters public trials -  England’s contact-tracing app for increasing people’s saf…</div>`)[0];
+                popup_7666a56ca41a300777abe381766a896c.setContent(html_dba6fd205f377cce85ff17216819785c);
+            
+        
+
+        marker_91d3e50cc5a12cd89b26f7d8872f1bc4.bindPopup(popup_7666a56ca41a300777abe381766a896c)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_91d3e50cc5a12cd89b26f7d8872f1bc4.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_91d3e50cc5a12cd89b26f7d8872f1bc4.setIcon(icon_59c5889e0eb8becbedb7fb65e39ae33f);
+            
+    
+            var marker_f30aebf50c380f7dcb8f3913bfb623ef = L.marker(
+                [25.7830338, -80.1947866],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_dfb6b7caa4bc1d3d131b2ac3c3488506 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9847eb26ad7b05cebb6c6eef066aea7e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_744eb5ba74e2d9558ee9d778f9e23ece = $(`<div id="html_744eb5ba74e2d9558ee9d778f9e23ece" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[United States for now] RT @larryelder: DAY 3  1)Trump is a racist.  2)Trump is personally responsible for 170,000 American COVID-19 deaths.  3)Trump executed Geor…</div>`)[0];
+                popup_9847eb26ad7b05cebb6c6eef066aea7e.setContent(html_744eb5ba74e2d9558ee9d778f9e23ece);
+            
+        
+
+        marker_f30aebf50c380f7dcb8f3913bfb623ef.bindPopup(popup_9847eb26ad7b05cebb6c6eef066aea7e)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_f30aebf50c380f7dcb8f3913bfb623ef.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_f30aebf50c380f7dcb8f3913bfb623ef.setIcon(icon_dfb6b7caa4bc1d3d131b2ac3c3488506);
+            
+    
+            var marker_1e6a683df7c324377642415076dc0074 = L.marker(
+                [53.3493795, -6.2605593],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_9834162972ce28f1fbcff8a1ec71d971 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_33d38440cec112b45d0ec8a688d51513 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_67c0f5644e4a6f08cf10ef698da572b2 = $(`<div id="html_67c0f5644e4a6f08cf10ef698da572b2" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[Dublin City, Ireland] RT @Womens_Aid: Today we launch the Women's Aid Annual Impact Report for 2019 and special Covid-19 Report.   The reports provide insight in…</div>`)[0];
+                popup_33d38440cec112b45d0ec8a688d51513.setContent(html_67c0f5644e4a6f08cf10ef698da572b2);
+            
+        
+
+        marker_1e6a683df7c324377642415076dc0074.bindPopup(popup_33d38440cec112b45d0ec8a688d51513)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_1e6a683df7c324377642415076dc0074.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_1e6a683df7c324377642415076dc0074.setIcon(icon_9834162972ce28f1fbcff8a1ec71d971);
+            
+    
+            var marker_dd160c9e73169b9caf43e260d4856051 = L.marker(
+                [10.6123221, 4.6816277],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_01acf838cd300b65db8ce699676ee04f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_279f2be06ca2cee4302143649cc5cc00 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2df4b3fdf79c54013345bf071bf7a9db = $(`<div id="html_2df4b3fdf79c54013345bf071bf7a9db" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[Niger/Kebbi Nigeria] RT @KebbiTweets: KEBBI CSO/CBO RISK COMMUNICATION AND COMMUNITY ENGAGEMENT ON COVID19 AND PRIMARY HEALTH CARE  Argungu Emirate Social Media…</div>`)[0];
+                popup_279f2be06ca2cee4302143649cc5cc00.setContent(html_2df4b3fdf79c54013345bf071bf7a9db);
+            
+        
+
+        marker_dd160c9e73169b9caf43e260d4856051.bindPopup(popup_279f2be06ca2cee4302143649cc5cc00)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_dd160c9e73169b9caf43e260d4856051.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_dd160c9e73169b9caf43e260d4856051.setIcon(icon_01acf838cd300b65db8ce699676ee04f);
+            
+    
+            var marker_ca13e29dff16e075b3405da4380531f6 = L.marker(
+                [-14.6909792, -75.1446041],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_7c4dd87ec300943fda7e850d3223a88c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d50c3ac8d538ff4818d301bab0d9108f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_619ddc5d3aca2398d44c02077ee9d76b = $(`<div id="html_619ddc5d3aca2398d44c02077ee9d76b" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[ètoile] RT @theseoulstory: JTBC drama 'Private Lives' starring Seohyun and Go Kyung Pyo halts filming  One staff reportedly went to the filming sit…</div>`)[0];
+                popup_d50c3ac8d538ff4818d301bab0d9108f.setContent(html_619ddc5d3aca2398d44c02077ee9d76b);
+            
+        
+
+        marker_ca13e29dff16e075b3405da4380531f6.bindPopup(popup_d50c3ac8d538ff4818d301bab0d9108f)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_ca13e29dff16e075b3405da4380531f6.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_ca13e29dff16e075b3405da4380531f6.setIcon(icon_7c4dd87ec300943fda7e850d3223a88c);
+            
+    
+            var marker_f455a7b9ce673d8d3e7de441fd12b298 = L.marker(
+                [46.971699, 9.5510721],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_5f53635990c678660d7956919efb6fc7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2b08baa3c5c0f64ae325defdcb8c6bd4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0ab1b9a1deb9c42cf2681d87b314b4dd = $(`<div id="html_0ab1b9a1deb9c42cf2681d87b314b4dd" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[TARDIS] RT @DWUhlfelderLaw: BREAKING:  42 Florida State students have tested positive for COVID-19.  Florida State is located in Tallahassee, Flori…</div>`)[0];
+                popup_2b08baa3c5c0f64ae325defdcb8c6bd4.setContent(html_0ab1b9a1deb9c42cf2681d87b314b4dd);
+            
+        
+
+        marker_f455a7b9ce673d8d3e7de441fd12b298.bindPopup(popup_2b08baa3c5c0f64ae325defdcb8c6bd4)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_f455a7b9ce673d8d3e7de441fd12b298.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_f455a7b9ce673d8d3e7de441fd12b298.setIcon(icon_5f53635990c678660d7956919efb6fc7);
+            
+    
+            var marker_ac05c07dd210825989fbe769c33d2f63 = L.marker(
+                [51.5074456, -0.1277653],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_557cc26633bc864cbf6926273d73ed86 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_76780f7925e2d00eac956232f182ad2d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ce2fa42121a4c617df8ff95aa114ac74 = $(`<div id="html_ce2fa42121a4c617df8ff95aa114ac74" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[London] RT @BylineTimes: Beyond Exceptional: The Etonian English Imperialism at the Heart of a Deadly COVID-19 Crisis – Byline Times https://t.co/t…</div>`)[0];
+                popup_76780f7925e2d00eac956232f182ad2d.setContent(html_ce2fa42121a4c617df8ff95aa114ac74);
+            
+        
+
+        marker_ac05c07dd210825989fbe769c33d2f63.bindPopup(popup_76780f7925e2d00eac956232f182ad2d)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_ac05c07dd210825989fbe769c33d2f63.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_ac05c07dd210825989fbe769c33d2f63.setIcon(icon_557cc26633bc864cbf6926273d73ed86);
+            
+    
+            var marker_4f93f914f1e29ffe53acf06e767e7922 = L.marker(
+                [50.6203946, 3.3814309],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_1fe71ed3e407c7a68a0b838ee0b54c8e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_318a21bdbb645add2e9201a4d6dfac3b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ef89bffcffdce8501d98543415bbed3a = $(`<div id="html_ef89bffcffdce8501d98543415bbed3a" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[Jungle City] RT @kuyaaisko: PH COVID-19 Response in 4 Words: https://t.co/zD0hEIVEnp</div>`)[0];
+                popup_318a21bdbb645add2e9201a4d6dfac3b.setContent(html_ef89bffcffdce8501d98543415bbed3a);
+            
+        
+
+        marker_4f93f914f1e29ffe53acf06e767e7922.bindPopup(popup_318a21bdbb645add2e9201a4d6dfac3b)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_4f93f914f1e29ffe53acf06e767e7922.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_4f93f914f1e29ffe53acf06e767e7922.setIcon(icon_1fe71ed3e407c7a68a0b838ee0b54c8e);
+            
+    
+            var marker_02a87f5efc7370109a97a14b84018582 = L.marker(
+                [-34.762779, 138.6837193],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_39ea067ebd0b14a01078c5f0dbf99d71 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_20151416d2f92e339171d7ce20416ae9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b13180350de56c8627e1a7ef7199c1d0 = $(`<div id="html_b13180350de56c8627e1a7ef7199c1d0" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[Salisbury Heights, Adelaide] RT @crikey_news: UNLOCKED READ: Scott Morrison's team is masterful at spin and marketing but won't even accept responsibility for the aged…</div>`)[0];
+                popup_20151416d2f92e339171d7ce20416ae9.setContent(html_b13180350de56c8627e1a7ef7199c1d0);
+            
+        
+
+        marker_02a87f5efc7370109a97a14b84018582.bindPopup(popup_20151416d2f92e339171d7ce20416ae9)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_02a87f5efc7370109a97a14b84018582.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_02a87f5efc7370109a97a14b84018582.setIcon(icon_39ea067ebd0b14a01078c5f0dbf99d71);
+            
+    
+            var marker_2d594d70f9391f0b6e17106987f8bb5e = L.marker(
+                [51.0333408, 2.8647185],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_e3d55cac37dca33662621389bed98c5e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_68efdae850983154045085632262a457 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_736eae25d794f3bbdc10f90b52b7da00 = $(`<div id="html_736eae25d794f3bbdc10f90b52b7da00" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[Diksmuide, België] 'Silent spreaders' of COVID-19: Kids who seem healthy may be more contagious than sick adults, study says - USA TOD… https://t.co/ZGXJ3JXtaV</div>`)[0];
+                popup_68efdae850983154045085632262a457.setContent(html_736eae25d794f3bbdc10f90b52b7da00);
+            
+        
+
+        marker_2d594d70f9391f0b6e17106987f8bb5e.bindPopup(popup_68efdae850983154045085632262a457)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_2d594d70f9391f0b6e17106987f8bb5e.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_2d594d70f9391f0b6e17106987f8bb5e.setIcon(icon_e3d55cac37dca33662621389bed98c5e);
+            
+    
+            var marker_5a5322ae4ef75a5ac96e8f477c9655c0 = L.marker(
+                [43.6954424, -116.3540138],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_03cb33d39ddd708db381f6df92f4b385 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c4ef1b9f4a81946be33429601669d244 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_99eeb024988e171dd58a1c4aa0c18839 = $(`<div id="html_99eeb024988e171dd58a1c4aa0c18839" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[Eagle, ID] 🤖 /u/mattok123 posted: Protestant churches under siege in new COVID-19 storm [in South Korea]. Unique church cultur… https://t.co/rGytbYrpAC</div>`)[0];
+                popup_c4ef1b9f4a81946be33429601669d244.setContent(html_99eeb024988e171dd58a1c4aa0c18839);
+            
+        
+
+        marker_5a5322ae4ef75a5ac96e8f477c9655c0.bindPopup(popup_c4ef1b9f4a81946be33429601669d244)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_5a5322ae4ef75a5ac96e8f477c9655c0.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_5a5322ae4ef75a5ac96e8f477c9655c0.setIcon(icon_03cb33d39ddd708db381f6df92f4b385);
+            
+    
+            var marker_a75afa6ddce928e5ab6c66a824a837ac = L.marker(
+                [46.7985624, 8.2319736],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_a3ab5d9ec00d6fb56a912e0aecf5ae38 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e851344050edd208aacee1cb35ddb538 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_900b80987b4194261d371884ee7b15b8 = $(`<div id="html_900b80987b4194261d371884ee7b15b8" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[Switzerland] RT @TAInitiative: We need to find ways for people to tell their own stories on their own terms. How will that look like in the digital age?…</div>`)[0];
+                popup_e851344050edd208aacee1cb35ddb538.setContent(html_900b80987b4194261d371884ee7b15b8);
+            
+        
+
+        marker_a75afa6ddce928e5ab6c66a824a837ac.bindPopup(popup_e851344050edd208aacee1cb35ddb538)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_a75afa6ddce928e5ab6c66a824a837ac.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_a75afa6ddce928e5ab6c66a824a837ac.setIcon(icon_a3ab5d9ec00d6fb56a912e0aecf5ae38);
+            
+    
+            var marker_56815b42d58e991276ecf750d5b4c1c8 = L.marker(
+                [28.6138954, 77.2090057],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_fe511ea842b3cb52fcee90d3a0b922e5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_36c98502d0689a226a2cdc9627b89f48 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a65f4fdbc1d09a2f3138d08ca8843c96 = $(`<div id="html_a65f4fdbc1d09a2f3138d08ca8843c96" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[New Delhi, India] RT @AsYouNotWish: I hope, the BMC will also follow the COVID-19 protocols when Aamir Khan returns to India from Turkey.  Mumbai Police just…</div>`)[0];
+                popup_36c98502d0689a226a2cdc9627b89f48.setContent(html_a65f4fdbc1d09a2f3138d08ca8843c96);
+            
+        
+
+        marker_56815b42d58e991276ecf750d5b4c1c8.bindPopup(popup_36c98502d0689a226a2cdc9627b89f48)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_56815b42d58e991276ecf750d5b4c1c8.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_56815b42d58e991276ecf750d5b4c1c8.setIcon(icon_fe511ea842b3cb52fcee90d3a0b922e5);
+            
+    
+            var marker_b3fe864f21fa964fb0b9b588ca4b6dee = L.marker(
+                [19.054999, 72.8692035],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_3e2c4bc0b01f64d13f466697f5b9cc42 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_56bc625120dd7ca471c4de46c9648ed9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ef40936c41c1db2f9ad019366cd224ef = $(`<div id="html_ef40936c41c1db2f9ad019366cd224ef" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[Mumbai, India] RT @sonaliranade: “… you realise India is doing very poorly. In China, Covid-19 deaths per million population is 3. In India it is 34. With…</div>`)[0];
+                popup_56bc625120dd7ca471c4de46c9648ed9.setContent(html_ef40936c41c1db2f9ad019366cd224ef);
+            
+        
+
+        marker_b3fe864f21fa964fb0b9b588ca4b6dee.bindPopup(popup_56bc625120dd7ca471c4de46c9648ed9)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_b3fe864f21fa964fb0b9b588ca4b6dee.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_b3fe864f21fa964fb0b9b588ca4b6dee.setIcon(icon_3e2c4bc0b01f64d13f466697f5b9cc42);
+            
+    
+            var marker_6f6a605ae783169c15d02bd4aa763965 = L.marker(
+                [23.6585116, -102.0077097],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_59020df49e8693aaa437623775c9292b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_61a44a77e5c0a1b0b7a57593b334e094 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_18a7b1405b1c54fe9695c8cf69aa1f3b = $(`<div id="html_18a7b1405b1c54fe9695c8cf69aa1f3b" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[mx] RT @kdramafairy: upcoming drama #PrivateLives has also suspended filming as one of their staff has been in a location where there was a con…</div>`)[0];
+                popup_61a44a77e5c0a1b0b7a57593b334e094.setContent(html_18a7b1405b1c54fe9695c8cf69aa1f3b);
+            
+        
+
+        marker_6f6a605ae783169c15d02bd4aa763965.bindPopup(popup_61a44a77e5c0a1b0b7a57593b334e094)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_6f6a605ae783169c15d02bd4aa763965.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_6f6a605ae783169c15d02bd4aa763965.setIcon(icon_59020df49e8693aaa437623775c9292b);
+            
+    
+            var marker_85954d0c954499c8c46919cd33a0e689 = L.marker(
+                [-33.9288301, 18.4172197],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_b4e9253e0010e64f384c76aecc55d538 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c99fef4ba5add06a9eea9e107c0166c0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f88cf8e4c56220a7d51548aa6bbc08d9 = $(`<div id="html_f88cf8e4c56220a7d51548aa6bbc08d9" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[Cape Town, South Africa] RT @kleine_zalze: While the temperature is mild and the evenings crisp, enjoy a glass of red at home with a serving of sizzling steak or ev…</div>`)[0];
+                popup_c99fef4ba5add06a9eea9e107c0166c0.setContent(html_f88cf8e4c56220a7d51548aa6bbc08d9);
+            
+        
+
+        marker_85954d0c954499c8c46919cd33a0e689.bindPopup(popup_c99fef4ba5add06a9eea9e107c0166c0)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_85954d0c954499c8c46919cd33a0e689.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_85954d0c954499c8c46919cd33a0e689.setIcon(icon_b4e9253e0010e64f384c76aecc55d538);
+            
+    
+            var marker_58cdd547b86d7d799587c099abc91ff6 = L.marker(
+                [51.6416586, -3.0241531],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_f84208d66e891278485c1058366a395b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0ca537a301e63df00218ae078286c491 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_215fca3b86e4ae148511d269d6e46c0a = $(`<div id="html_215fca3b86e4ae148511d269d6e46c0a" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[Cwmbran South Wales] RT @TonyGreyMan: @Tony__Heller Leader of Manchester City Council warns: "some of the government's measures imposed are now almost certainly…</div>`)[0];
+                popup_0ca537a301e63df00218ae078286c491.setContent(html_215fca3b86e4ae148511d269d6e46c0a);
+            
+        
+
+        marker_58cdd547b86d7d799587c099abc91ff6.bindPopup(popup_0ca537a301e63df00218ae078286c491)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_58cdd547b86d7d799587c099abc91ff6.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_58cdd547b86d7d799587c099abc91ff6.setIcon(icon_f84208d66e891278485c1058366a395b);
+            
+    
+            var marker_8b1c6d5b3dec20e495875883ff8dce2a = L.marker(
+                [22.3511148, 78.6677428],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_67c79f7a3c356b7e2b544243b03eb858 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_077322275677792dbbdb94fac6ca7591 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e747142cac725a977bf4d7f047a6a7e7 = $(`<div id="html_e747142cac725a977bf4d7f047a6a7e7" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[India] RT @ReviewReligions: "The recent COVID-19 pandemic has exposed an underbelly of poverty much closer than we had realized. It has been shock…</div>`)[0];
+                popup_077322275677792dbbdb94fac6ca7591.setContent(html_e747142cac725a977bf4d7f047a6a7e7);
+            
+        
+
+        marker_8b1c6d5b3dec20e495875883ff8dce2a.bindPopup(popup_077322275677792dbbdb94fac6ca7591)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_8b1c6d5b3dec20e495875883ff8dce2a.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_8b1c6d5b3dec20e495875883ff8dce2a.setIcon(icon_67c79f7a3c356b7e2b544243b03eb858);
+            
+    
+            var marker_c407f87c084a4593cf03dca5d9867b5a = L.marker(
+                [52.5310214, -1.2649062],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_0459a1090602e89d295efdcc6ddfe076 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0a565004cfb4cef0b50dc60347c909ad = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1708cf726d397a6b7f364c8ad4cde09d = $(`<div id="html_1708cf726d397a6b7f364c8ad4cde09d" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[England] RT @itvnews: Children may carry more Covid-19 in their systems than previously thought, study reveals https://t.co/lIEQPgi0Ve</div>`)[0];
+                popup_0a565004cfb4cef0b50dc60347c909ad.setContent(html_1708cf726d397a6b7f364c8ad4cde09d);
+            
+        
+
+        marker_c407f87c084a4593cf03dca5d9867b5a.bindPopup(popup_0a565004cfb4cef0b50dc60347c909ad)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_c407f87c084a4593cf03dca5d9867b5a.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_c407f87c084a4593cf03dca5d9867b5a.setIcon(icon_0459a1090602e89d295efdcc6ddfe076);
+            
+    
+            var marker_db990c36af012c68edc239b7194162f5 = L.marker(
+                [22.3511148, 78.6677428],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_f0aa291a904e92789cef36fc77395287 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d1ac7f9d102ede8890d0db8a3c46af33 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eae5eda88247feb1662c28ac3ab1d12c = $(`<div id="html_eae5eda88247feb1662c28ac3ab1d12c" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[India] RT @Showsha_in: #ProudOfYouSidharth trended on social media after #BiggBoss13 winner #SidharthShukla reached out to help a fan's Covid_19 p…</div>`)[0];
+                popup_d1ac7f9d102ede8890d0db8a3c46af33.setContent(html_eae5eda88247feb1662c28ac3ab1d12c);
+            
+        
+
+        marker_db990c36af012c68edc239b7194162f5.bindPopup(popup_d1ac7f9d102ede8890d0db8a3c46af33)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_db990c36af012c68edc239b7194162f5.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_db990c36af012c68edc239b7194162f5.setIcon(icon_f0aa291a904e92789cef36fc77395287);
+            
+    
+            var marker_50d36b3ba87b1380adca706157210c3e = L.marker(
+                [52.2928116, -3.73893],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_5aa0a5bfdfec4a1848bc8112cff85a41 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_835d2c80f505e2bb0e86e4789a4e8646 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7e05bf6ccae988190ea007d855fb1535 = $(`<div id="html_7e05bf6ccae988190ea007d855fb1535" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[Wales, GB] RT @GeneroGroup: If you're an event professional feeling a little lost on how to implement your next event, have a read of our latest blog!…</div>`)[0];
+                popup_835d2c80f505e2bb0e86e4789a4e8646.setContent(html_7e05bf6ccae988190ea007d855fb1535);
+            
+        
+
+        marker_50d36b3ba87b1380adca706157210c3e.bindPopup(popup_835d2c80f505e2bb0e86e4789a4e8646)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_50d36b3ba87b1380adca706157210c3e.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_50d36b3ba87b1380adca706157210c3e.setIcon(icon_5aa0a5bfdfec4a1848bc8112cff85a41);
+            
+    
+            var marker_17ade3daaf0b65b2afd7f018777bc134 = L.marker(
+                [52.4144637, -4.0685073],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_e9657215265458e0ddc3da989f2df777 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1eddbb3e3b93f900d1a4decc95c4390a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4c8ba9afab8fe32821598ef7ff321fd4 = $(`<div id="html_4c8ba9afab8fe32821598ef7ff321fd4" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[Cymru / Wales] RT @HywelDdaHB: We know it's been tough not seeing friends and being stuck at home for months. We want you to enjoy yourself as much as pos…</div>`)[0];
+                popup_1eddbb3e3b93f900d1a4decc95c4390a.setContent(html_4c8ba9afab8fe32821598ef7ff321fd4);
+            
+        
+
+        marker_17ade3daaf0b65b2afd7f018777bc134.bindPopup(popup_1eddbb3e3b93f900d1a4decc95c4390a)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_17ade3daaf0b65b2afd7f018777bc134.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_17ade3daaf0b65b2afd7f018777bc134.setIcon(icon_e9657215265458e0ddc3da989f2df777);
+            
+    
+            var marker_2e002e5096dd6cfb95cd562f1006ab34 = L.marker(
+                [51.5074456, -0.1277653],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_176ecc11c71383d06341d9d2a7aa2e1f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_98e6a01ef54296bceaa184f91c687df7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6dd92b6ad43eecbab217458f0e032767 = $(`<div id="html_6dd92b6ad43eecbab217458f0e032767" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[London, United Kingdom] #Coronavirus market impact - #house moves down by a third https://t.co/a8nwCpPmAt</div>`)[0];
+                popup_98e6a01ef54296bceaa184f91c687df7.setContent(html_6dd92b6ad43eecbab217458f0e032767);
+            
+        
+
+        marker_2e002e5096dd6cfb95cd562f1006ab34.bindPopup(popup_98e6a01ef54296bceaa184f91c687df7)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_2e002e5096dd6cfb95cd562f1006ab34.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_2e002e5096dd6cfb95cd562f1006ab34.setIcon(icon_176ecc11c71383d06341d9d2a7aa2e1f);
+            
+    
+            var marker_1cda21204590abc888ec1f82c82037d5 = L.marker(
+                [41.8755616, -87.6244212],
+                {
+}
+            ).addTo(map_96be507242fb906f11b09471b92fdc0f);
+        
+    
+            var icon_e768c35f37af60d60c5385a7a85e7d02 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_48ba2fc778120d30049d1513fef6a08b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8eae1f28ec3fb980924633877558e077 = $(`<div id="html_8eae1f28ec3fb980924633877558e077" style="width: 100.0%; height: 100.0%;"><b>2020-08-20</b><br>[Chicago, IL] RT @AnheuserBusch: From redirecting our sports investments to open blood drive centers to hosting live-streamed workouts and cooking lesson…</div>`)[0];
+                popup_48ba2fc778120d30049d1513fef6a08b.setContent(html_8eae1f28ec3fb980924633877558e077);
+            
+        
+
+        marker_1cda21204590abc888ec1f82c82037d5.bindPopup(popup_48ba2fc778120d30049d1513fef6a08b)
+        ;
+
+        
+    
+    
+                {
+                    const element = marker_1cda21204590abc888ec1f82c82037d5.getElement();
+                    if (element) {
+                        element.style.width = "";
+                        element.style.height = "";
+                        element.style.marginLeft = "";
+                        element.style.marginTop = "";
+                    }
+                }
+                marker_1cda21204590abc888ec1f82c82037d5.setIcon(icon_e768c35f37af60d60c5385a7a85e7d02);
+            
+</script>
+</html>
